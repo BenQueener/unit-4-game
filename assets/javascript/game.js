@@ -87,9 +87,12 @@ $(document).ready(function() {
             }
             // What if we just wound them?  We update the message, the health reading and initate another attack round.
             else {
+                yourHealth = yourHealth - theirCounterattack;
                 $('#userMessage').text(opponentTransformer + " took " + (yourAttack + yourAttack*attackCounter) + " damage!!");
-                $("." + currentOpponent + " .cardfooter").text(theirHealth);
+                $("." + opponentTransformer + " .cardfooter").text(theirHealth);
+                $(".currentOpponent ." + opponentTransformer).show();
                 attackCounter++;
+              //  $('#userMessage').text(yourTransformer +" took " + theirCounterattack + " damage!")
                 clickFight();
             }
         });    
