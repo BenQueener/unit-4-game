@@ -49,13 +49,144 @@ var transformer = {
 //make global variables
 yourTransformer = 0;
 opponentTransformer = 0;
+yourHealth =0;
+yourAttack=0;
+theirHealth=0;
+theirCounterattack=0;
 
-//make functions to place the transformers in the right place in the game
-//hide opponents and chosen
-//$(".robot-image").hide(".arena");
+//function to reset or start the game
+function resetGame(){   
+//hide the right robots
+$(".availableOpponents").hide();
+$(".currentOpponent").hide();
+//initialize the health tracking
+$(".bumblebee .card-footer").text(transformer.bumblebee.healthpoints)  ;
+$(".jazz .card-footer").text(transformer.jazz.healthpoints) ;
+$(".soundwave .card-footer").text(transformer.soundwave.healthpoints) ;
+$(".skywarp .card-footer").text(transformer.skywarp.healthpoints) 
+}
 
+//initialize the game
+$(document).ready(function(){
+     $(".bg").css("background-image", "url('assets/images/unicron.webp')");
 
+function clickChampion() {
+    //Message user to click on the robot he chooses
+    $("#userMessage").text("Click on a transformer to choose your champion!!");
 
+    //click to set your transformer 
+    $(".chooseTransformer .bumblebee").click(function(){ setChampion("bumblebee");});
+    $(".chooseTransformer .jazz").click(function(){ setChampion("jazz");});
+    $(".chooseTransformer .soundwave").click(function(){ setChampion("soundwave");});
+    $(".chooseTransformer .skywarp").click(function(){ setChampion("skywarp");});
+}
+
+//set up the available transformers
+function setChampion(name)  {
+   yourTransformer = name;
+    if (yourTransformer === "bumblebee"){
+        $(".chooseTransformer .jazz").hide();
+        $(".chooseTransformer .soundwave").hide();
+        $(".chooseTransformer .skywarp").hide();
+        $(".availableOpponents").show();
+        $(".availableOpponents .bumblebee").hide();
+        yourHealth = transformer.bumblebee.healthpoints;
+        yourAttack = transformer.bumblebee.attackpower;
+    }
+    else if (yourTransformer === "jazz"){
+        $(".chooseTransformer .bumblebee").hide();
+        $(".chooseTransformer .soundwave").hide();
+        $(".chooseTransformer .skywarp").hide();
+        $(".availableOpponents").show();
+        $(".availableOpponents .jazz").hide();
+        yourHealth = transformer.jazz.healthpoints;
+        yourAttack = transformer.jazz.attackpower;
+    }
+    else if (yourTransformer === "skywarp"){
+        $(".chooseTransformer .bumblebee").hide();
+        $(".chooseTransformer .soundwave").hide();
+        $(".chooseTransformer .jazz").hide();
+        $(".availableOpponents").show();
+        $(".availableOpponents .skywarp").hide();
+        yourHealth = transformer.skywarp.healthpoints;
+        yourAttack = transformer.skywarp.attackpower;
+    } 
+    else if (yourTransformer === "soundwave"){
+        $(".chooseTransformer .bumblebee").hide();
+        $(".chooseTransformer .jazz").hide();
+        $(".chooseTransformer .skywarp").hide();
+        $(".availableOpponents").show();
+        $(".availableOpponents .soundwave").hide();
+        yourHealth = transformer.soundwave.healthpoints;
+        yourAttack = transformer.soundwave.attackpower;
+    }
+   
+}
+
+function clickOpponent() {
+    //Message user to click on the first opponent
+    $("#userMessage").text("Click on a transformer to choose your first opponent!!"); 
+
+    //click to set your opponent 
+    $(".availableOpponents .bumblebee").click(function(){ setOpponent("bumblebee");});
+    $(".availableOpponents .jazz").click(function(){ setOpponent("jazz");});
+    $(".availableOpponents .soundwave").click(function(){ setOpponent("soundwave");});
+    $(".availableOpponents .skywarp").click(function(){ setOpponent("skywarp");});
+}
+
+//click to set your  opponant transformer 
+function setOpponent(name){
+
+    if (name === "bumblebee"){
+        opponentTransformer = "bumblebee";
+        $(".currentOpponent").show();
+        $(".currentOpponent .jazz").hide();
+        $(".currentOpponent .soundwave").hide();
+        $(".currentOpponent .skywarp").hide();
+        $(".availableOpponents .bumblebee").hide();
+        theirHealth = transformer.bumblebee.healthpoints;
+        theirAttack = transformer.bumblebee.counterattackpower;
+    }
+
+    else if (name === "jazz"){
+        opponentTransformer = "jazz";
+        $(".currentOpponent").show();
+        $(".currentOpponent .bumblebee").hide();
+        $(".currentOpponent .soundwave").hide();
+        $(".currentOpponent .skywarp").hide();
+        $(".availableOpponents .jazz").hide();
+        theirHealth = transformer.jazz.healthpoints;
+        theirAttack = transformer.jazz.counterattackpower;
+    }
+    else if (name === "skywarp"){
+        opponentTransformer = "skywarp";
+        $(".currentOpponent").show();
+        $(".currentOpponent .jazz").hide();
+        $(".currentOpponent .soundwave").hide();
+        $(".currentOpponent .bumblebee").hide();
+        $(".availableOpponents .skywarp").hide();
+        theirHealth = transformer.skywarp.healthpoints;
+        theirAttack = transformer.skywarp.counterattackpower;
+    }
+    else if (name === "soundwave"){
+        opponentTransformer = "soundwave";
+        $(".currentOpponent").show();
+        $(".currentOpponent .jazz").hide();
+        $(".currentOpponent .bumblebee").hide();
+        $(".currentOpponent .skywarp").hide();
+        $(".availableOpponents .soundwave").hide();
+        theirHealth = transformer.soundwave.healthpoints;
+        theirAttack = transformer.soundwave.counterattackpower;
+    }
+}
+
+resetGame();
+
+clickChampion();
+
+clickOpponent();
+
+// click  and the opponent gets revealed and hidden
 
 //make a function that carrys out the logic of the game once the attack button is pressed
 //What happens when we attack
@@ -66,42 +197,11 @@ opponentTransformer = 0;
 //What happens when we loose
 
 //function to display all the availabe robots.
-// var renderCharacters = function(charObj, areaRender) {
-//     //render all characters
-//     if (areaRender == '#characters-section') {
-//       $(areaRender).empty();
-//       for (var key in transformer) {
-//         if (transformer.hasOwnProperty(key)) {
-//           renderOne(charObj[key], areaRender, '');
-//         }
-//       }
-//     }
 
 
 // //function to make your character and put it in a render area 
-// var renderOne = function(character, renderArea, makeChar) {
-//     //character: obj, renderArea: class/id, makeChar: string
-//     var charDiv = $("<div class='character' data-name='" + transformer.name + "'>");
-//     var charName = $("<div class='character-name'>").text(transformer.name);
-//     var charImage = $("<img alt='image' class='character-image'>").attr("src", transformer.imageUrl);
-//     var charHealth = $("<div class='character-health'>").text(transformer.healthpoints);
-//     charDiv.append(charName).append(charImage).append(charHealth);
-//     $(renderArea).append(charDiv);
-//     //Capitalizes the first letter in characters name
-//     // $('.character').css('textTransform', 'capitalize');
-//     // conditional render
-//     if (makeChar == 'enemy') {
-//       $(charDiv).addClass('enemy');
-//     } else if (makeChar == 'defender') {
-//       currDefender = character;
-//       $(charDiv).addClass('target-enemy');
-//     }
-//   };
+
 
 //$("#coin-image").html( "<img src='http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg'>") 
 
- $(document).ready(function(){
-     $(".bg").css("background-image", "url('assets/images/unicron.webp')");
-     $(".arena").hide();
-    // $(".choosetransformer .bumblebee").hide();
- });
+}); 

@@ -18,73 +18,210 @@
 <body class="bg">
     <div class = "container">
         <div class = "row">
-            <div class="col-lg-12"></div>
+            <div class="col-md-12">
                 <h1>Transformer's Battle RPG</h1>
+                <h5 id="userMessage"></h5>
+                <button class="btn" id="attack-button">Attack</button>
             </div>
         </div>
-    </div>
+    
+        <!-- First row of Robots-->
+        <div class = "row">
+            <div class = "col-lg-12">
+                <h3>Your Transformer</h3>
+               
+            </div>
 
-    <div class = "row">
-        <div class = "col-lg-12">
-            <h3>Choose Your Transformer</h3>
-        </div>
-
-    <div class = "row"></div>    
-        <div class = 'choosetransformer'>
-                
-                <!-- <div class="col-lg-2">
-                    <div class = "bumblebee">
-                        <div class = "robot-name">Bumblebee</div>
-                        <img src="assets/images/bumblebee.jpg" class="robot-image" alt="Bumblebee">
-                        <div class= "robot-health"> health</div>
-                    </div>
-                </div>
-                 -->
-                <div class="col-lg-2">
+            <div class = 'row chooseTransformer'>
+ 
+                <div class="bumblebee">
                     <div class="card text-center">
                         <div class="card-header">
-                          Jazz
+                        Bumblebee
+                        </div>
+                        <div class="card-body">
+                            <img src="assets/images/bumblebee.jpg" class="robot-image" alt="Bumblebee">
+                        </div>
+                        <div class="card-footer">
+                        Health
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jazz"> 
+                    <div class="card text-center">
+                        <div class="card-header">
+                        Jazz
                         </div>
                         <div class="card-body">
                             <img src="assets/images/jazz.jpg" class="robot-image" alt="Jazz">
                         </div>
                         <div class="card-footer">
-                          Health
+                        Health
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="soundwave">
+                    <div class="card text-center">
+                        <div class="card-header">
+                        Soundwave
+                        </div>
+                        <div class="card-body">
+                            <img src="assets/images/soundwave.jpg" class="robot-image" alt="Soundwave">
+                        </div>
+                        <div class="card-footer">
+                        Health
                         </div>
                     </div>
                 </div>
 
-                    
-                    <img src="assets/images/skywarp.jpg" class="robot-image" alt="Skywarp">
-                    <img src="assets/images/soundwave.jpg" class="robot-image" alt="Soundwave">
-                
-        </div>
-    </div>    
-
-    <div class = "row">
-        <div class = "col-lg-12">
-        <h2>Available Opponents</h3>
-             <div class = 'availableOpponents'>
-                        <img src="assets/images/bumblebee.jpg" class="robot-image" alt="Bumblebee">
-                        <img src="assets/images/jazz.jpg" class="robot-image" alt="Jazz">
-                        <img src="assets/images/skywarp.jpg" class="robot-image" alt="Skywarp">
-                        <img src="assets/images/soundwave.jpg" class="robot-image" alt="Soundwave">
-             </div>
-        </div>
-    </div>   
-
-    <div class = "row">
-            <div class = "col-lg-12">
-            <h2>Current Opponents </h3>
-                 <div class = 'arena'>
-
-                            <img src="assets/images/bumblebee.jpg" class="robot-image" alt="Bumblebee">
-                            <img src="assets/images/jazz.jpg" class="robot-image" alt="Jazz">
-                            <img src="assets/images/skywarp.jpg" class="robot-image" alt="Skywarp">
-                            <img src="assets/images/soundwave.jpg" class="robot-image" alt="Soundwave">
-                 </div>
+                <div class="skywarp">
+                    <div class="card text-center">
+                        <div class="card-header">
+                        Skywarp
+                        </div>
+                        <div class="card-body">
+                            <img src="assets/images/Skywarp.jpg" class="robot-image" alt="Skywarp">
+                        </div>
+                        <div class="card-footer">
+                        Health
+                        </div>
+                    </div>
+                </div>
             </div>
-       </div>  
+        </div>
+ 
+        <!-- Second row of Robots-->        
+        <div class = "row ">
+            <div class = "col-lg-12">
+                    <h3>Available Opponents</h3>
+            </div>
+                <div class = 'row availableOpponents'>
+     
+                    <div class="bumblebee">
+                        <div class="card text-center">
+                            <div class="card-header">
+                            Bumblebee
+                            </div>
+                            <div class="card-body">
+                                <img src="assets/images/bumblebee.jpg" class="robot-image" alt="Bumblebee">
+                            </div>
+                            <div class="card-footer">
+                            Health
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="jazz"> 
+                        <div class="card text-center">
+                            <div class="card-header">
+                            Jazz
+                            </div>
+                            <div class="card-body">
+                                <img src="assets/images/jazz.jpg" class="robot-image" alt="Jazz">
+                            </div>
+                            <div class="card-footer">
+                            Health
+                            </div>
+                        </div>
+                    </div> 
+    
+                    <div class="soundwave">
+                        <div class="card text-center">
+                            <div class="card-header">
+                            Soundwave
+                            </div>
+                            <div class="card-body">
+                                <img src="assets/images/soundwave.jpg" class="robot-image" alt="Soundwave">
+                            </div>
+                            <div class="card-footer">
+                            Health
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="skywarp">
+                        <div class="card text-center">
+                            <div class="card-header">
+                            Skywarp
+                            </div>
+                            <div class="card-body">
+                                <img src="assets/images/Skywarp.jpg" class="robot-image" alt="Skywarp">
+                            </div>
+                            <div class="card-footer">
+                            Health
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "row ">
+                    <div class = "col-lg-12">
+                            <h3>Current Opponent</h3>
+                    </div>
+            
+                        <div class = 'row currentOpponent '>
+             
+                            <div class="bumblebee">
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                    Bumblebee
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="assets/images/bumblebee.jpg" class="robot-image" alt="Bumblebee">
+                                    </div>
+                                    <div class="card-footer">
+                                    Health
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="jazz"> 
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                    Jazz
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="assets/images/jazz.jpg" class="robot-image" alt="Jazz">
+                                    </div>
+                                    <div class="card-footer">
+                                    Health
+                                    </div>
+                                </div>
+                            </div> 
+            
+                            <div class="soundwave">
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                    Soundwave
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="assets/images/soundwave.jpg" class="robot-image" alt="Soundwave">
+                                    </div>
+                                    <div class="card-footer">
+                                    Health
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="skywarp">
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                    Skywarp
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="assets/images/Skywarp.jpg" class="robot-image" alt="Skywarp">
+                                    </div>
+                                    <div class="card-footer">
+                                    Health
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+ 
  <!-- Linking to our JavaScript file. -->
  <script src="https://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="assets/javascript/game.js">
